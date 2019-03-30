@@ -1,0 +1,23 @@
+{
+  "name": "proyecto_node",
+  "version": "1.0.0",
+  "description": "proyecto node",
+  "main": "entrega1.js",
+  "dependencies": {
+    "yargs": "^13.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebas1018/curso_node.git"
+  },
+  "author": "sebastian Rojas sebaron0205@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebas1018/curso_node/issues"
+  },
+  "homepage": "https://github.com/sebas1018/curso_node#readme"
+}
