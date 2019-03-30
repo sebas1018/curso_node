@@ -1,0 +1,6 @@
+El usuario Sebastian con cédula 1234 
+ha elegido el curso: 
+id: 1
+nombre: node js
+duración: 30 días 
+valor: 10000
