@@ -4,6 +4,7 @@
   "description": "proyecto node",
   "main": "entrega1.js",
   "dependencies": {
+    "express": "^4.16.4",
     "yargs": "^13.2.2"
   },
   "devDependencies": {},

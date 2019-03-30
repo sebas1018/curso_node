@@ -21,6 +21,11 @@ const argv = require('yargs')
 .command ('inscribir','incribir interesados',opciones)
 .argv
 
+const express = require('express')
+const app = express()
+
+let body = "";
+
 /**
  * Metodo para mostrar los cursos
  * @param {*} cursos lista de cursos
@@ -29,6 +34,7 @@ const argv = require('yargs')
 let mostrarCursos = (cursos,cont) => {
     if(cont<3){
         imprimirCurso(cursos[cont],function(result){
+            body += result + '<br>';
             console.log(result);
             cont++;
             mostrarCursos(cursos,cont);
@@ -48,10 +54,11 @@ let crearArchivo = (curso) => {
     'duración: '+ curso.duracion+' días \r\n'+
     'valor: '+ curso.valor+'\r\n';
     console.log(texto);
-    fs.writeFile('cursos.txt',texto, (err) => {
+   return texto;
+    /*fs.writeFile('cursos.txt',texto, (err) => {
         if(err) throw (err);
         console.log('se ha creado el archivo');
-    })
+    })*/
 }
 
 /**
@@ -61,15 +68,20 @@ let init = () =>{
     let curso=cursos.find(curso=>curso.id==argv.i);
     if(curso == undefined){
         if(argv.i > 0)
-            console.log('No se encuentra un curso con este id');
-        console.log('Cursos disponibles: \n');
+            body += ('No se encuentra un curso con este id<br>\n');
+        body += 'Cursos disponibles: <br>\n';
         mostrarCursos(cursos,0);
-        
+        console.log(body);                
     }
     else{
-        crearArchivo(curso);
+        body = crearArchivo(curso);
     }
 }
 
 //inicializacion
 init();
+app.get('/', function (req, res) {
+    res.send(body)
+})
+ 
+app.listen(3000)
