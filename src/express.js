@@ -14,10 +14,10 @@ app.set("view engine", "hbs");
 app.get('/',(req, res) => {
   res.render('index',{
     title: 'Pagina de prueba',
-    estudiante : 'Sebastian',
-    nota1 : 4,
-    nota2 : 3,
-    nota3 : 5
+    estudiante : req.query.nombre,
+    nota1 : parseInt(req.query.nota1),
+    nota2 : parseInt(req.query.nota2),
+    nota3 : parseInt(req.query.nota3)
   });
 });
  
