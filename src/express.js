@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const hbs = require('hbs');
 const bodyParser = require('body-parser');
+const port = process.env.PORT || 3000;
 require('./helpers')
 
 const directorioPublico = path.join(__dirname, '../public');
@@ -30,6 +31,6 @@ app.get('*',(req, res) =>{
   res.render('error.hbs');
 });
  
-app.listen(3000,() => {
-  console.log("corriendo en 3000");
+app.listen(port,() => {
+  console.log("corriendo en " + port);
 });
